@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sun Neo AI - Explicativo</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm;
+      }
+
+      :root {
+        --ink: #1f2933;
+        --muted: #5b6673;
+        --line: #d9dee5;
+        --soft: #f5f7fa;
+        --soft-2: #eef2f6;
+        --sun: #d99200;
+        --sun-soft: #fff4d8;
+        --green: #16825d;
+        --red: #b42318;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #ffffff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13.2px;
+        line-height: 1.52;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: 34px;
+        line-height: 1.08;
+        letter-spacing: 0;
+        margin-bottom: 18px;
+      }
+
+      h2 {
+        font-size: 21px;
+        line-height: 1.22;
+        margin-bottom: 12px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h3 {
+        font-size: 15px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      ul,
+      ol {
+        margin-top: 0;
+        padding-left: 18px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      .page {
+        min-height: 257mm;
+        page-break-after: always;
+      }
+
+      .page:last-child {
+        page-break-after: auto;
+      }
+
+      .cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 257mm;
+        padding: 4mm 0;
+      }
+
+      .eyebrow {
+        color: var(--sun);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.45;
+        max-width: 600px;
+      }
+
+      .summary {
+        margin-top: 28px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        background: var(--soft);
+        border-radius: 8px;
+        max-width: 640px;
+      }
+
+      .summary strong {
+        color: var(--ink);
+      }
+
+      .cover-footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+      }
+
+      .metric {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+      }
+
+      .metric span {
+        display: block;
+        color: var(--sun);
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      .section {
+        margin-bottom: 24px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 14px;
+      }
+
+      .card.soft {
+        background: var(--soft);
+      }
+
+      .callout {
+        border-left: 4px solid var(--sun);
+        background: var(--sun-soft);
+        padding: 13px 15px;
+        border-radius: 6px;
+        margin: 16px 0;
+      }
+
+      .ok {
+        border-left: 4px solid var(--green);
+      }
+
+      .no {
+        border-left: 4px solid var(--red);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0 18px;
+        font-size: 12.5px;
+      }
+
+      th,
+      td {
+        border: 1px solid var(--line);
+        padding: 8px 9px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--soft-2);
+        font-weight: 700;
+      }
+
+      .flow {
+        counter-reset: step;
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .flow li {
+        counter-increment: step;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+        align-items: start;
+      }
+
+      .flow li::before {
+        content: counter(step);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--sun);
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+      }
+
+      .footer-note {
+        color: var(--muted);
+        font-size: 11px;
+        margin-top: 20px;
+        border-top: 1px solid var(--line);
+        padding-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="page cover">
+        <div>
+          <div class="eyebrow">Sun Neo AI</div>
+          <h1>Gestão simples para empresas de energia solar</h1>
+          <p class="subtitle">
+            Um sistema para organizar clientes, contratos, financeiro e dados técnicos das instalações solares em um só lugar.
+          </p>
+
+          <div class="summary">
+            <p>
+              <strong>Em poucas palavras:</strong> o Sun Neo AI ajuda uma empresa solar a sair do controle espalhado em WhatsApp, papel e planilhas, criando uma rotina mais clara para vender, acompanhar contratos, controlar recebimentos e guardar informações importantes de cada instalação.
+            </p>
+            <p>
+              A primeira versão será focada no uso interno da empresa: dono, comercial, financeiro e equipe técnica.
+            </p>
+          </div>
+        </div>
+
+        <div class="cover-footer">
+          <div class="metric">
+            <span>CRM</span>
+            Leads, clientes, histórico e follow-ups.
+          </div>
+          <div class="metric">
+            <span>Financeiro</span>
+            Contratos, parcelas, custos e margem.
+          </div>
+          <div class="metric">
+            <span>Técnico</span>
+            Inversor, conta de luz e dados da instalação.
+          </div>
+        </div>
+      </section>
+
+      <section class="page">
+        <div class="section">
+          <h2>O que é o Sun Neo AI</h2>
+          <p>
+            O Sun Neo AI é uma ferramenta de gestão criada para empresas que vendem, instalam ou acompanham sistemas de energia solar. A ideia é reunir as informações mais importantes da operação em uma plataforma única, com foco em clareza e simplicidade.
+          </p>
+          <p>
+            Ele não tenta substituir toda a empresa nem automatizar tudo desde o primeiro dia. O objetivo inicial é resolver o básico que mais trava a rotina: saber quem são os clientes, quais contratos estão em andamento, quanto cada contrato gera, quanto custa e quais dados técnicos foram usados.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Para quem foi criado</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Empresas solares pequenas e médias</h3>
+              <p>Instaladoras e integradoras que precisam organizar melhor vendas, contratos, financeiro e pós-venda técnico.</p>
+            </div>
+            <div class="card">
+              <h3>Donos e gestores</h3>
+              <p>Pessoas que precisam enxergar a operação sem depender de várias planilhas ou mensagens antigas.</p>
+            </div>
+            <div class="card">
+              <h3>Equipe comercial</h3>
+              <p>Vendedores que precisam acompanhar leads, propostas, follow-ups e oportunidades que podem fechar.</p>
+            </div>
+            <div class="card">
+              <h3>Financeiro e técnico</h3>
+              <p>Times que precisam registrar parcelas, custos, margem, inversores, conta de luz e status da instalação.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Problemas que o sistema resolve</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Problema comum</th>
+                <th>Como o Sun Neo AI ajuda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Leads e clientes espalhados em conversas.</td>
+                <td>Centraliza dados, status, responsável e histórico.</td>
+              </tr>
+              <tr>
+                <td>Falta de clareza sobre contratos fechados.</td>
+                <td>Mostra contrato, cliente, valor, etapa financeira e etapa técnica.</td>
+              </tr>
+              <tr>
+                <td>Dificuldade para saber lucro real.</td>
+                <td>Registra custos e calcula margem estimada por contrato.</td>
+              </tr>
+              <tr>
+                <td>Dados técnicos ficam perdidos.</td>
+                <td>Guarda inversor, potência, módulos, conta de luz e status da instalação.</td>
+              </tr>
+              <tr>
+                <td>Todos os clientes recebem a mesma prioridade.</td>
+                <td>Classifica clientes por potencial de valor futuro.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="page">
+        <div class="section">
+          <h2>Principais funções</h2>
+          <div class="grid">
+            <div class="card soft">
+              <h3>1. CRM comercial</h3>
+              <p>Cadastro de leads, clientes, origem do contato, etapa da venda, responsável e próximas tarefas.</p>
+            </div>
+            <div class="card soft">
+              <h3>2. Pipeline de vendas</h3>
+              <p>Visão simples das oportunidades: novo lead, contato feito, proposta enviada, negociação, fechado ou perdido.</p>
+            </div>
+            <div class="card soft">
+              <h3>3. Contratos</h3>
+              <p>Registro dos contratos fechados, vinculando cliente, valor, responsável, financeiro e dados técnicos.</p>
+            </div>
+            <div class="card soft">
+              <h3>4. Financeiro por contrato</h3>
+              <p>Controle de entrada, parcelas, vencimentos, pagamentos, custos e margem estimada.</p>
+            </div>
+            <div class="card soft">
+              <h3>5. Carteira de clientes</h3>
+              <p>Organização dos clientes por tipo, histórico, perfil e potencial de gerar novos negócios.</p>
+            </div>
+            <div class="card soft">
+              <h3>6. Dados técnicos</h3>
+              <p>Cadastro de inversor, potência do sistema, quantidade de módulos, concessionária e consumo da conta de luz.</p>
+            </div>
+            <div class="card soft">
+              <h3>7. LTV potencial</h3>
+              <p>Classificação de clientes como baixo, médio, alto ou estratégico, ajudando a priorizar atenção.</p>
+            </div>
+            <div class="card soft">
+              <h3>8. Relatórios simples</h3>
+              <p>Indicadores sobre vendas, contratos, valores em aberto, margem, clientes prioritários e status técnico.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Como será o uso no dia a dia</h2>
+          <ol class="flow">
+            <li><div><strong>Entrada do lead.</strong><br>O contato entra no sistema com nome, telefone, tipo de cliente, origem e consumo médio quando disponível.</div></li>
+            <li><div><strong>Acompanhamento comercial.</strong><br>A equipe acompanha a etapa da venda e registra follow-ups para não perder oportunidades.</div></li>
+            <li><div><strong>Fechamento do contrato.</strong><br>Quando a venda fecha, o lead vira cliente e o contrato passa a ser acompanhado pela empresa.</div></li>
+            <li><div><strong>Controle financeiro.</strong><br>O financeiro registra entrada, parcelas, custos, vencimentos e margem estimada.</div></li>
+            <li><div><strong>Cadastro técnico.</strong><br>A equipe registra inversor, potência, módulos, conta de luz, concessionária e status da instalação.</div></li>
+            <li><div><strong>Gestão da carteira.</strong><br>O dono visualiza clientes, contratos, valores em aberto, clientes prioritários e oportunidades futuras.</div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="page">
+        <div class="section">
+          <h2>O que o sistema faz</h2>
+          <div class="callout ok">
+            <ul>
+              <li>Organiza leads, clientes e contratos em uma única base.</li>
+              <li>Mostra em qual etapa cada oportunidade ou contrato está.</li>
+              <li>Ajuda a acompanhar parcelas, vencimentos e valores em aberto.</li>
+              <li>Registra custos para estimar a margem de cada contrato.</li>
+              <li>Guarda dados técnicos importantes da instalação solar.</li>
+              <li>Classifica clientes por potencial de valor futuro.</li>
+              <li>Ajuda o dono a enxergar a operação sem depender de várias planilhas.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>O que o sistema ainda não faz nesta fase</h2>
+          <div class="callout no">
+            <ul>
+              <li>Não é um aplicativo para o cliente final acompanhar o projeto.</li>
+              <li>Não substitui banco, contador ou sistema fiscal.</li>
+              <li>Não faz projeto elétrico automático.</li>
+              <li>Não cria modelo 3D de telhado.</li>
+              <li>Não compra equipamentos nem funciona como marketplace.</li>
+              <li>Não depende de conexão automática com todos os inversores.</li>
+              <li>Não promete previsões avançadas antes de ter dados reais de uso.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Premissas do produto</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Premissa</th>
+                <th>Significado prático</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Começar simples.</td>
+                <td>Resolver primeiro organização, financeiro e dados técnicos básicos.</td>
+              </tr>
+              <tr>
+                <td>Ser feito para empresas solares.</td>
+                <td>Usar linguagem e fluxos próximos da rotina de instaladoras.</td>
+              </tr>
+              <tr>
+                <td>Priorizar clareza.</td>
+                <td>O dono precisa saber o que está vendendo, recebendo e instalando.</td>
+              </tr>
+              <tr>
+                <td>Valorizar a carteira.</td>
+                <td>Cliente fechado continua importante para manutenção, expansão e indicações.</td>
+              </tr>
+              <tr>
+                <td>Evoluir com dados reais.</td>
+                <td>Automações e integrações devem vir depois que o uso principal estiver validado.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="page">
+        <div class="section">
+          <h2>Benefícios esperados</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Mais controle comercial</h3>
+              <p>Menos oportunidades esquecidas e mais clareza sobre o que está perto de fechar.</p>
+            </div>
+            <div class="card">
+              <h3>Melhor visão financeira</h3>
+              <p>Contratos passam a mostrar valores, custos, parcelas e margem estimada.</p>
+            </div>
+            <div class="card">
+              <h3>Atendimento técnico mais rápido</h3>
+              <p>A equipe encontra dados de inversor, conta de luz e instalação sem procurar em conversas antigas.</p>
+            </div>
+            <div class="card">
+              <h3>Clientes melhor priorizados</h3>
+              <p>A empresa passa a enxergar quais clientes podem gerar manutenção, expansão ou novas indicações.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Como o Sun Neo AI pode evoluir</h2>
+          <p>
+            Depois que a base de clientes, contratos, financeiro e dados técnicos estiver organizada, o sistema pode ganhar novas camadas de automação e inteligência.
+          </p>
+          <ul>
+            <li>Importação de planilhas antigas para acelerar a organização inicial.</li>
+            <li>Modelos de propostas e contratos mais padronizados.</li>
+            <li>Anexos de conta de luz, documentos e imagens da instalação.</li>
+            <li>Lembretes por WhatsApp ou email para follow-ups e cobranças.</li>
+            <li>Integração com inversores mais usados pelas empresas atendidas.</li>
+            <li>Relatórios mais avançados sobre carteira, manutenção e oportunidades futuras.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Resumo final</h2>
+          <div class="callout">
+            <p>
+              O Sun Neo AI nasce para ser uma ferramenta prática de gestão para empresas de energia solar. Ele organiza o que normalmente fica espalhado: clientes, vendas, contratos, recebimentos, custos, margem e dados técnicos.
+            </p>
+            <p>
+              A proposta é simples: dar ao dono e à equipe uma visão clara da operação, ajudando a vender melhor, acompanhar melhor e tomar decisões com mais segurança.
+            </p>
+          </div>
+        </div>
+
+        <p class="footer-note">
+          Sun Neo AI - Documento explicativo comercial. Este material descreve a proposta funcional do sistema e sua direção de evolução.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

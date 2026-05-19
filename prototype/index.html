@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sun Neo AI - Protótipo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand" href="#dashboard" data-route="dashboard" aria-label="Sun Neo AI">
+          <span class="brand-mark">SN</span>
+          <span>
+            <strong>Sun Neo</strong>
+            <small>CRM solar</small>
+          </span>
+        </a>
+
+        <nav class="nav-groups">
+          <section>
+            <p class="nav-label">Operação</p>
+            <button class="nav-item active" data-route="dashboard">
+              <span class="icon" data-icon="layout"></span>
+              Dashboard
+            </button>
+            <button class="nav-item" data-route="crm">
+              <span class="icon" data-icon="pipeline"></span>
+              CRM e Pipeline
+            </button>
+            <button class="nav-item" data-route="clientes">
+              <span class="icon" data-icon="users"></span>
+              Clientes
+            </button>
+            <button class="nav-item" data-route="novo-cliente">
+              <span class="icon" data-icon="user-plus"></span>
+              Cadastrar novo cliente
+            </button>
+          </section>
+
+          <section>
+            <p class="nav-label">Gestão</p>
+            <button class="nav-item" data-route="contratos">
+              <span class="icon" data-icon="file"></span>
+              Contratos
+            </button>
+            <button class="nav-item" data-route="financeiro">
+              <span class="icon" data-icon="wallet"></span>
+              Financeiro
+            </button>
+            <button class="nav-item" data-route="tecnico">
+              <span class="icon" data-icon="solar"></span>
+              Técnico
+            </button>
+            <button class="nav-item" data-route="relatorios">
+              <span class="icon" data-icon="chart"></span>
+              Relatórios
+            </button>
+          </section>
+
+          <section>
+            <p class="nav-label">Sistema</p>
+            <button class="nav-item" data-route="configuracoes">
+              <span class="icon" data-icon="settings"></span>
+              Configurações
+            </button>
+          </section>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Empresa solar</p>
+            <h1 id="page-title">Dashboard</h1>
+          </div>
+          <div class="top-actions">
+            <label class="search">
+              <span class="icon" data-icon="search"></span>
+              <input id="global-search" type="search" placeholder="Buscar cliente, contrato ou lead">
+            </label>
+            <button class="icon-button" id="theme-toggle" type="button" aria-label="Alternar tema">
+              <span class="icon" data-icon="moon"></span>
+            </button>
+            <button class="profile-button" type="button">
+              <span class="avatar">JM</span>
+              <span>
+                <strong>João Moitinho</strong>
+                <small>Admin</small>
+              </span>
+            </button>
+          </div>
+        </header>
+
+        <section id="view" class="view" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
