@@ -45,6 +45,10 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 O banco de producao nasce sem leads, clientes, contratos ou dados de prototipo.
 
+Runbook completo:
+
+- `docs/supabase-launch-runbook.md`
+
 ## Deploy na Vercel
 
 - Framework Preset: `Next.js`
@@ -54,3 +58,10 @@ O banco de producao nasce sem leads, clientes, contratos ou dados de prototipo.
 - Output Directory: vazio/padrao
 
 Configure as mesmas variaveis de ambiente na Vercel antes do deploy.
+
+## Release e Seguranca
+
+- `SECURITY.md`
+- `docs/security-release-review.md`
+- `docs/market-stakeholder-context.md`
+- `docs/pr-release-checklist.md`
